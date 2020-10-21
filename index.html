@@ -9,7 +9,38 @@
     <title>MEME Generator</title>
 </head>
 
-<body>
+<body onload="onInit()">
+    <section class="modal">
+        <div class="modal-content">
+            <header class="main-header container">
+                <div class="header-content flex space-between align-center">
+                    <div class="logo">Memegen</div>
+                    <div class="main-nav flex justify-left align-center">
+                        <a class="gallery clean-link" href="#">Gallery</a>
+                        <a class="about clean-link" href="#">About</a>
+                    </div>
+                </div>
+
+            </header>
+
+            <div class="main-editor flex justify-evenly">
+                <div class="canvas-container">
+                    <canvas id="my-canvas" height="480" width="475"></canvas>
+                </div>
+                <div class="canvas-editor flex-c">
+                    <div class="main-box">
+                        <label for=""><input type="text"></label>
+                        <button></button>
+                        <button></button>
+                        <button></button>
+                        <button></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <header class="main-header container">
         <div class="header-content flex space-between align-center">
             <div class="logo">Memegen</div>
@@ -26,24 +57,6 @@
             <input type="search" placeholder="Search" name="search" id="search">
         </div>
         <div class="pic grid">
-            <img src="img/1.jpg" alt="">
-            <img src="img/2.jpg" alt="">
-            <img src="img/3.jpg" alt="">
-            <img src="img/4.jpg" alt="">
-            <img src="img/5.jpg" alt="">
-            <img src="img/6.jpg" alt="">
-            <img src="img/7.jpg" alt="">
-            <img src="img/8.jpg" alt="">
-            <img src="img/9.jpg" alt="">
-            <img src="img/10.jpg" alt="">
-            <img src="img/11.jpg" alt="">
-            <img src="img/12.jpg" alt="">
-            <img src="img/13.jpg" alt="">
-            <img src="img/14.jpg" alt="">
-            <img src="img/15.jpg" alt="">
-            <img src="img/16.jpg" alt="">
-            <img src="img/17.jpg" alt="">
-            <img src="img/18.jpg" alt="">
         </div>
 
     </main>
