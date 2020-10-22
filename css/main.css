@@ -205,10 +205,8 @@ main.main-content {
 }
 
 main .main-editor{
-    display: flex;
+    margin: 0 auto;
 }
-
-
 
 
 
@@ -248,12 +246,9 @@ main .control-box .box-btn button:hover {
     .pic {
         max-width: 680px;
     }
-    /* .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-    } */
+
  
-    /* main .main-editor{
+    main .main-editor{
         flex-direction: column;
-    } */
+    }
 }
