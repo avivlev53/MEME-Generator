@@ -4,12 +4,12 @@
 
 @font-face {
     font-family: poppins;
-    src: url(/css/fonts/Poppins-Medium.ttf);
+    src: url(./fonts/Poppins-Medium.ttf);
 }
 
 @font-face {
     font-family: impact;
-    src: url(/css/fonts/impact.ttf);
+    src: url(./fonts/impact.ttf);
 }
 
 body {
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 .grid {
     display: grid;
     gap: 26px 30px;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
 }
 
 /* list helper */
@@ -180,7 +180,8 @@ main.main-content {
 }
 
 .pic {
-    margin-left: 60px;
+    /* margin-left: 60px; */
+    padding: 0 30px;
     margin-bottom: 10px;
 }
 
@@ -203,47 +204,27 @@ main.main-content {
     color: #fff;
 }
 
-.modal {
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 2;
-    display: none;
-    background-color: #22252c;
-    margin: 0 auto;
+main .main-editor{
+    display: flex;
 }
 
-.modal .main-header {
-    margin-bottom: 10px;
-}
 
-.modal .gallery {
-    margin-right: 40px;
-    padding: none;
-    color: #fff;
-    box-shadow: none;
-    border-radius: none;
-    background-color: rgba(255, 255, 255, 0);
-}
 
-.modal .canvas-container canvas {
-    background-color: pink;
-}
 
-.modal .canvas-editor {
+
+main .canvas-editor {
     box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
     border-radius: 30px;
     background-color: #999999;
     max-width: 480px;
 }
 
-.modal .control-box {
+main .control-box {
     /* width: 460px; */
     margin: 40px;
 }
 
-.modal .control-box .memeTxt {
+main .control-box .memeTxt {
     height: 2rem;
     box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
     border-radius: 28px;
@@ -253,13 +234,13 @@ main.main-content {
     outline: none;
 }
 
-.modal .control-box .box-btn button {
+main .control-box .box-btn button {
     box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
     border-radius: 10px;
     font-size: 1.5rem;
 }
 
-.modal .control-box .box-btn button:hover {
+main .control-box .box-btn button:hover {
     cursor: pointer;
 }
 
@@ -267,15 +248,12 @@ main.main-content {
     .pic {
         max-width: 680px;
     }
-    .grid {
+    /* .grid {
         display: grid;
-        grid-template-columns: repeat(2, 250px);
-    }
-    .modal {
-        background-color: #22252c;
-        margin: 0 auto;
-    }
-    .modal .main-editor{
+        grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    } */
+ 
+    /* main .main-editor{
         flex-direction: column;
-    }
+    } */
 }

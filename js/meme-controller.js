@@ -4,19 +4,24 @@
 function onInit() {
     createPics()
     renderPic()
+    onCloseEditor()
     // console.log(gImgs)
 }
 function onShowEditor(id) {
-    var elModal = document.querySelector('.modal')
-    elModal.style.display = 'block'
+    var elModal = document.querySelector('.main-editor')
+    elModal.style.display = 'flex'
+    var elGalley=document.querySelector('.main-content')
+    elGalley.style.display='none'
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
     drawImg(id)
     drawOnCanvas(id)
 }
-function onCloseModal(){
-    var elModal = document.querySelector('.modal')
+function onCloseEditor(){
+    var elModal = document.querySelector('.main-editor')
     elModal.style.display = 'none'
+    var elGalley=document.querySelector('.main-content')
+    elGalley.style.display = 'block'
 }
 
 function downloadCanvas(elLink) {

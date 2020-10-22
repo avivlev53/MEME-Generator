@@ -10,62 +10,47 @@
 </head>
 
 <body onload="onInit()">
-    <section class="modal">
-        <div class="modal-content">
-            <header class="main-header container">
-                <div class="header-content flex space-between align-center">
-                    <div class="logo">Memegen</div>
-                    <div class="main-nav flex justify-left align-center">
-                        <a class="gallery clean-link" onclick="onCloseModal()" href="#">Gallery</a>
-                        <a class="about clean-link" href="#">About</a>
-                    </div>
-                </div>
-
-            </header>
-
-            <div class="main-editor flex justify-evenly">
-                <div class="canvas-container">
-                    <canvas id="my-canvas" height="480" width="475"></canvas>
-                </div>
-                <div class="canvas-editor">
-                    <div class="control-box flex-c warp">
-                        <label for=""><input id="memeTxt" class="memeTxt" type="text" onkeyup="renderCanvas()"
-                                onkeydown="chechIfEnter(event)"></label>
-                        <div class="box-btn flex warp">
-                            <button class="clean-btn"onclick="onAddLine()" >+</button>
-                            <button class="clean-btn" onclick="onChangeFontSize('+')">A+</button>
-                            <button class="clean-btn" onclick="onChangeFontSize('-')">A-</button>
-                            <button class="clean-btn" onclick="onUpDown('-')">⬆</button>
-                            <button class="clean-btn" onclick="onUpDown('+')">⬇</button>
-                            <button class="clean-btn" onclick="onChangeLines()">⬇⬆</button>
-                            <button class="clean-btn">🗑</button>
-                            <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
     <header class="main-header container">
         <div class="header-content flex space-between align-center">
             <div class="logo">Memegen</div>
             <div class="main-nav flex justify-left align-center">
-                <a class="gallery clean-link" href="#">Gallery</a>
+                <a class="gallery clean-link" onclick="onCloseEditor()" href="#">Gallery</a>
                 <a class="about clean-link" href="#">About</a>
             </div>
         </div>
 
     </header>
-
-    <main class="main-content main-container flex-c">
-        <div class="search-container flex justify-center">
-            <input type="search" placeholder="Search" name="search" id="search">
+    <main>
+        <div class="main-editor flex justify-evenly">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="480" width="475"></canvas>
+            </div>
+            <div class="canvas-editor">
+                <div class="control-box flex-c warp">
+                    <label for=""><input id="memeTxt" class="memeTxt" type="text" onkeyup="renderCanvas()"
+                            onkeydown="chechIfEnter(event)"></label>
+                    <div class="box-btn flex warp">
+                        <button class="clean-btn" onclick="onAddLine()">+</button>
+                        <button class="clean-btn" onclick="onChangeFontSize('+')">A+</button>
+                        <button class="clean-btn" onclick="onChangeFontSize('-')">A-</button>
+                        <button class="clean-btn" onclick="onUpDown('-')">⬆</button>
+                        <button class="clean-btn" onclick="onUpDown('+')">⬇</button>
+                        <button class="clean-btn" onclick="onChangeLines()">⬇⬆</button>
+                        <button class="clean-btn">🗑</button>
+                        <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="pic grid">
-        </div>
 
+        <div class="main-content main-container flex-c">
+            <div class="search-container flex justify-center">
+                <input type="search" placeholder="Search" name="search" id="search">
+            </div>
+            <div class="pic grid">
+            </div>
+
+        </div>
     </main>
     <footer class="main-footer container">
         <div class="footer-contant flex-c align-center">
