@@ -16,7 +16,7 @@
                 <div class="header-content flex space-between align-center">
                     <div class="logo">Memegen</div>
                     <div class="main-nav flex justify-left align-center">
-                        <a class="gallery clean-link" href="#">Gallery</a>
+                        <a class="gallery clean-link" onclick="onCloseModal()" href="#">Gallery</a>
                         <a class="about clean-link" href="#">About</a>
                     </div>
                 </div>
@@ -27,13 +27,20 @@
                 <div class="canvas-container">
                     <canvas id="my-canvas" height="480" width="475"></canvas>
                 </div>
-                <div class="canvas-editor flex-c">
-                    <div class="main-box">
-                        <label for=""><input type="text"></label>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
+                <div class="canvas-editor">
+                    <div class="control-box flex-c warp">
+                        <label for=""><input id="memeTxt" class="memeTxt" type="text" onkeyup="renderCanvas()"
+                                onkeydown="chechIfEnter(event)"></label>
+                        <div class="box-btn flex warp">
+                            <button class="clean-btn" onclick="onChangeFontSize('+')">A+</button>
+                            <button class="clean-btn" onclick="onChangeFontSize('-')">A-</button>
+                            <button class="clean-btn" onclick="onUpDown('-')">⬆</button>
+                            <button class="clean-btn" onclick="onUpDown('+')">⬇</button>
+                            <button class="clean-btn" onclick="onChangeLines()">⬇⬆</button>
+                            <button class="clean-btn">+</button>
+                            <button class="clean-btn">🗑</button>
+                            <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+                        </div>
                     </div>
                 </div>
             </div>
