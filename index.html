@@ -32,12 +32,12 @@
                         <label for=""><input id="memeTxt" class="memeTxt" type="text" onkeyup="renderCanvas()"
                                 onkeydown="chechIfEnter(event)"></label>
                         <div class="box-btn flex warp">
+                            <button class="clean-btn"onclick="onAddLine()" >+</button>
                             <button class="clean-btn" onclick="onChangeFontSize('+')">A+</button>
                             <button class="clean-btn" onclick="onChangeFontSize('-')">A-</button>
                             <button class="clean-btn" onclick="onUpDown('-')">⬆</button>
                             <button class="clean-btn" onclick="onUpDown('+')">⬇</button>
                             <button class="clean-btn" onclick="onChangeLines()">⬇⬆</button>
-                            <button class="clean-btn">+</button>
                             <button class="clean-btn">🗑</button>
                             <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
                         </div>

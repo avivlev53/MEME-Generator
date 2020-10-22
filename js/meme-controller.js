@@ -30,6 +30,7 @@ function renderCanvas() {
 }
 function writingCan() {
     var font = document.getElementById('memeTxt').value
+    if(!font)return
     gMeme.lines[gLine].txt = font
     if (gLine === 0) {
         drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[gLine].heightY)
@@ -37,11 +38,11 @@ function writingCan() {
         // ev.value=''
         drawText(gMeme.lines[0].txt, 50, gMeme.lines[0].heightY)
         drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[gLine].heightY)
-    } else {
+    } else if (gLine===2) {
         drawText(gMeme.lines[0].txt, 50, gMeme.lines[0].heightY)
         drawText(gMeme.lines[1].txt, 50, gMeme.lines[1].heightY)
         drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[gLine].heightY)
-    }
+    }else return;
 }
 
 function chechIfEnter(ev) {
@@ -50,6 +51,11 @@ function chechIfEnter(ev) {
         gMeme.selectedLineIndx++
         document.getElementById('memeTxt').value = ''
     }
+}
+function onAddLine(){
+    gLine ++
+    gMeme.selectedLineIndx++
+    document.getElementById('memeTxt').value = ''
 }
 function renderPic() {
     var elPic = document.querySelector('.pic')

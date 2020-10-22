@@ -46,7 +46,6 @@ function drawImg(num) {
 }
 function drawOnCanvas(id) {
     gMeme.selectedImgId = id
-    console.log(gMeme)
 
 }
 
@@ -81,10 +80,15 @@ function upDown(sign) {
 
 }
 function changeLines() {
-    writingCan(gMeme.selectedLineIndx-1)
-    // drawText(gMeme.lines[0].txt, 50, gMeme.lines[0].heightY)
-    //     drawText(gMeme.lines[1].txt, 50, gMeme.lines[1].heightY)
-    //     drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[2].heightY)
+    if(gLine===0){
+        gLine===2
+    }
+    gLine--
+    console.log('LINE num:',gLine)
+    drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[gLine].heightY)
+    document.getElementById('memeTxt').value = ''
+    drawImg(gMeme.selectedImgId)
+    
 }
 function createPics() {
     for (let i = 1; i <= gNumOfPics; i++) {
