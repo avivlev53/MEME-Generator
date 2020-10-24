@@ -7,6 +7,12 @@ function onInit() {
     onCloseEditor()
     // console.log(gImgs)
 }
+function onNavMenu() {
+    const elModal = document.querySelector('header .main-nav');
+    const elHamburger = document.querySelector('header .hamburger-logo');
+    elModal.classList.toggle('nav-bar-modal');
+    elHamburger.classList.toggle('hamburger-logo-trans');
+}
 function onShowEditor(id) {
     var elModal = document.querySelector('.main-editor')
     elModal.style.display = 'flex'
@@ -37,17 +43,9 @@ function writingCan() {
     var font = document.getElementById('memeTxt').value
     if(!font)return
     gMeme.lines[gLine].txt = font
-    if (gLine === 0) {
-        drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[gLine].heightY)
-    } else if (gLine === 1) {
-        // ev.value=''
-        drawText(gMeme.lines[0].txt, 50, gMeme.lines[0].heightY)
-        drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[gLine].heightY)
-    } else if (gLine===2) {
-        drawText(gMeme.lines[0].txt, 50, gMeme.lines[0].heightY)
-        drawText(gMeme.lines[1].txt, 50, gMeme.lines[1].heightY)
-        drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[gLine].heightY)
-    }else return;
+    for (let i=0 ; i<3;i++){
+        drawText(gMeme.lines[i].txt, gMeme.lines[i].locationX, gMeme.lines[i].heightY)
+    }
 }
 
 function chechIfEnter(ev) {
@@ -78,4 +76,10 @@ function onUpDown(sign) {
 }
 function onChangeLines() {
     changeLines()
+}
+function onDeleteLine(){
+    deleteLine()
+}
+function onChangeAlignment(alignment){
+    changeAlignment(alignment)
 }

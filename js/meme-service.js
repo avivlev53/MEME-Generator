@@ -15,6 +15,7 @@ const gMeme = {
             txt: '',
             size: 60,
             align: 'left',
+            locationX:50,
             color: 'white',
             heightY: 70
         },
@@ -22,6 +23,7 @@ const gMeme = {
             txt: '',
             size: 60,
             align: 'left',
+            locationX:50,
             color: 'white',
             heightY: 450
         },
@@ -29,6 +31,7 @@ const gMeme = {
             txt: '',
             size: 60,
             align: 'left',
+            locationX:50,
             color: 'white',
             heightY: 250
         }
@@ -46,7 +49,6 @@ function drawImg(num) {
 }
 function drawOnCanvas(id) {
     gMeme.selectedImgId = id
-
 }
 
 function drawText(text, x, y) {
@@ -80,16 +82,30 @@ function upDown(sign) {
 
 }
 function changeLines() {
-    if(gLine===0){
-        gLine===2
-    }
+    if (gMeme.lines[gLine].txt==='')return
+    if(gLine<=0) gLine=3
     gLine--
-    console.log('LINE num:',gLine)
-    drawText(gMeme.lines[gLine].txt, 50, gMeme.lines[gLine].heightY)
-    document.getElementById('memeTxt').value = ''
-    drawImg(gMeme.selectedImgId)
-    
+    drawText(gMeme.lines[gLine].txt, gMeme.lines[i].locationX, gMeme.lines[gLine].heightY)
+    document.getElementById('memeTxt').value = gMeme.lines[gLine].txt   
 }
+function deleteLine(){
+    document.getElementById('memeTxt').value=''
+    gMeme.lines[gLine].txt=' '
+    drawText(gMeme.lines[gLine].txt, gMeme.lines[i].locationX, gMeme.lines[gLine].heightY)
+}
+function changeAlignment(alignment){
+    drawImg(gMeme.selectedImgId)
+    var offsetX
+    if (alignment==='left') offsetX=50
+    else if (alignment==='center') offsetX=200
+    else if (alignment==='right') offsetX=450
+    for (let i=0 ; i<3;i++){
+        gMeme.lines[i].locationX=offsetX
+        gMeme.lines[i].align=alignment
+        drawText(gMeme.lines[i].txt, gMeme.lines[i].locationX, gMeme.lines[i].heightY)
+    }
+}
+
 function createPics() {
     for (let i = 1; i <= gNumOfPics; i++) {
         gImgs.push(_createPic(i))

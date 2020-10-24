@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 .grid {
     display: grid;
     gap: 26px 30px;
-    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 /* list helper */
@@ -204,11 +204,9 @@ main.main-content {
     color: #fff;
 }
 
-main .main-editor{
+main .main-editor {
     margin: 0 auto;
 }
-
-
 
 main .canvas-editor {
     box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
@@ -242,13 +240,48 @@ main .control-box .box-btn button:hover {
     cursor: pointer;
 }
 
+header .hamburger-logo {
+    display: none;
+}
+
+@media (max-width: 520px) {
+    header .main-nav {
+        border: 0.5px solid #292929;
+        background-color: rgba(156, 154, 154, 0.897);
+        height: 100%;
+        width: 300px;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        top: 70px;
+        right: -300px;
+        transition: transform .3s;
+    }
+    header .hamburger-logo {
+        margin-inline-end: 15px;
+        display: inline-block;
+        fill: #ffffff;
+        color: #ffff;
+        width: 40px;
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .nav-bar-modal {
+        transform: translateX(-300px);
+    }
+    .hamburger-logo-trans {
+        transform: rotate(90deg);
+    }
+}
+
 @media (max-width: 700px) {
     .pic {
         max-width: 680px;
     }
-
- 
-    main .main-editor{
+    main .main-editor {
+        /* margin: 0 auto; */
         flex-direction: column;
     }
 }
