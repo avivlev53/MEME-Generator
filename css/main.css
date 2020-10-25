@@ -116,10 +116,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-container {
     max-width: 1240px;
-    /* background-color: #fff; */
     margin: 0 auto;
     border-radius: 10px;
-    background-color: #383b42;
+    
 }
 
 header.main-header {
@@ -132,6 +131,7 @@ header.main-header {
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #0575E6, #00F260);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-bottom: 10px;
 }
 
 .header-content {
@@ -174,21 +174,17 @@ main.main-content {
 
 .search-container input {
     background-color: #22252c;
-    /* opacity: 0.38;
-    color: #fefefe;
-    font-weight: 300; */
 }
 
 .pic {
-    /* margin-left: 60px; */
     padding: 0 30px;
+    margin: 0 auto;
     margin-bottom: 10px;
 }
 
 .pic img {
     object-fit: cover;
     max-width: 100%;
-    /* height: 100%; */
 }
 
 .pic img:hover {
@@ -203,20 +199,18 @@ main.main-content {
 .fab {
     color: #fff;
 }
-
-main .main-editor {
-    margin: 0 auto;
+main{
+    margin-bottom: 1rem;
 }
 
 main .canvas-editor {
-    box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
-    border-radius: 30px;
-    background-color: #999999;
     max-width: 480px;
+    box-shadow: 1px 5px 0 #939699, inset 0 5px 0 #8a8686;
+    border-radius: 30px;
+    background-color: #999ba0;
 }
 
 main .control-box {
-    /* width: 460px; */
     margin: 40px;
 }
 
@@ -230,32 +224,55 @@ main .control-box .memeTxt {
     outline: none;
 }
 
+input[type=text]{
+    font-family: poppins;
+    text-align: center;
+    font-size: 1rem;
+}
+
 main .control-box .box-btn button {
-    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    box-shadow: 1px 5px 0 rgba(128, 126, 126, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
     border-radius: 10px;
     font-size: 1.5rem;
 }
 
 main .control-box .box-btn button:hover {
     cursor: pointer;
+    background-color: rgb(218, 216, 218);
+}
+main .control-box .box-btn .download{
+    width: fit-content;
+}
+main .control-box .box-btn button a{
+    color: rgb(65, 63, 63);
 }
 
 header .hamburger-logo {
     display: none;
 }
+footer .logo {
+    margin: 0 auto;
+}
 
-@media (max-width: 520px) {
+@media (max-width: 580px) {
+    header.main-header {
+        border-radius: 0;
+    }
     header .main-nav {
-        border: 0.5px solid #292929;
-        background-color: rgba(156, 154, 154, 0.897);
+        /* border: 0.5px solid #292929; */
+        background: #00F260;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #0575E6, #00F260);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #0575E6, #00F260);
         height: 100%;
-        width: 300px;
+        width: 100%;
         position: fixed;
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        top: 70px;
-        right: -300px;
+        top: 73px;
+        right: -100%;
         transition: transform .3s;
     }
     header .hamburger-logo {
@@ -269,19 +286,22 @@ header .hamburger-logo {
         transition: transform 0.3s;
     }
     .nav-bar-modal {
-        transform: translateX(-300px);
+        transform: translateX(-100%);
     }
     .hamburger-logo-trans {
         transform: rotate(90deg);
     }
+    .logo{
+        margin-inline-start: 40px;
+    }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
     .pic {
         max-width: 680px;
     }
     main .main-editor {
-        /* margin: 0 auto; */
         flex-direction: column;
+        align-items: center;
     }
 }

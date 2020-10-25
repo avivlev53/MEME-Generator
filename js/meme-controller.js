@@ -1,11 +1,11 @@
 'use strict'
-
+var gCanvas;
+var gCtx;
 
 function onInit() {
     createPics()
     renderPic()
     onCloseEditor()
-    // console.log(gImgs)
 }
 function onNavMenu() {
     const elModal = document.querySelector('header .main-nav');
@@ -16,17 +16,18 @@ function onNavMenu() {
 function onShowEditor(id) {
     var elModal = document.querySelector('.main-editor')
     elModal.style.display = 'flex'
-    var elGalley=document.querySelector('.main-content')
-    elGalley.style.display='none'
+    var elGalley = document.querySelector('.main-content')
+    elGalley.style.display = 'none'
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
     drawImg(id)
-    drawOnCanvas(id)
+    getIdIndx(id)
+    
 }
-function onCloseEditor(){
+function onCloseEditor() {
     var elModal = document.querySelector('.main-editor')
     elModal.style.display = 'none'
-    var elGalley=document.querySelector('.main-content')
+    var elGalley = document.querySelector('.main-content')
     elGalley.style.display = 'block'
 }
 
@@ -37,28 +38,31 @@ function downloadCanvas(elLink) {
 }
 function renderCanvas() {
     drawImg(gMeme.selectedImgId)
-    
-}
-function writingCan() {
-    var font = document.getElementById('memeTxt').value
-    if(!font)return
-    gMeme.lines[gLine].txt = font
-    for (let i=0 ; i<3;i++){
-        drawText(gMeme.lines[i].txt, gMeme.lines[i].locationX, gMeme.lines[i].heightY)
-    }
 }
 
-function chechIfEnter(ev) {
+function renderTxt() {
+    var txt = document.getElementById('memeTxt').value
+    gMeme.lines[gLine].txt = txt
+    let prevLineIdx=gLine
+    for (let i = 0; i < 3; i++) {
+        gLine=i
+        drawText(gMeme.lines[i].txt, gMeme.lines[i].locationX, gMeme.lines[i].heightY)
+    }
+    gLine=prevLineIdx
+}
+
+function checkIfEnter(ev) {
     if (ev.key === 'Enter') {
-        gLine ++
-        gMeme.selectedLineIndx++
-        document.getElementById('memeTxt').value = ''
+        onAddLine()
     }
 }
-function onAddLine(){
-    gLine ++
-    gMeme.selectedLineIndx++
+function onAddLine() {
+    if (gLine===2) return
+    gLine++
     document.getElementById('memeTxt').value = ''
+    renderCanvas()
+    renderTxt()
+
 }
 function renderPic() {
     var elPic = document.querySelector('.pic')
@@ -68,18 +72,46 @@ function renderPic() {
 
     elPic.innerHTML = strHtml.join(' ')
 }
+function drawImg(num) {
+    var img = new Image()
+    img.src = `./img/${num}.jpg`;
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+        renderTxt()
+    }
+}
+function drawText(text, x, y) {
+    gCtx.strokeStyle = 'black'
+    gCtx.fillStyle = gMeme.lines[gLine].color
+    gCtx.lineWidth = '2'
+    gCtx.font = `${gMeme.lines[gLine].size}px impact`
+    gCtx.textAlign = `${gMeme.lines[gLine].align}`
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+
+}
 function onChangeFontSize(sign) {
     changeFontSize(sign)
+    renderCanvas()
+    renderTxt()
 }
-function onUpDown(sign) {
-    upDown(sign)
+function onChangeheight(sign) {
+    changeheight(sign)
+    renderCanvas()
+    renderTxt()
 }
 function onChangeLines() {
     changeLines()
+    renderCanvas()
+    renderTxt()
 }
-function onDeleteLine(){
+function onDeleteLine() {
     deleteLine()
+    renderCanvas()
+    renderTxt()
 }
-function onChangeAlignment(alignment){
+function onChangeAlignment(alignment) {
     changeAlignment(alignment)
+    renderCanvas()
+    renderTxt()
 }
